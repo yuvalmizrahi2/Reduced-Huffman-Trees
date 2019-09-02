@@ -1,8 +1,8 @@
 CXX=g++ -std=c++1z
 CXXFLAGS=-Wall -Werror -Wvla
 
-a.out: Huffman.o freqCompare.o CodeWord.o Node.o ReduceNode.o bitsCompare.o main.o
-	$(CXX) $(CXXFLAGS) Huffman.o freqCompare.o CodeWord.o Node.o ReduceNode.o bitsCompare.o main.o -o a.out
+a.out: Huffman.o freqCompare.o CodeWord.o Node.o ReduceNode.o bitsCompare.o NonOptimal.o Optimal.o main.o
+	$(CXX) $(CXXFLAGS) Huffman.o freqCompare.o CodeWord.o Node.o ReduceNode.o bitsCompare.o NonOptimal.o Optimal.o main.o -o a.out
 
 Huffman.o: Huffman.cpp Huffman.hpp
 	$(CXX) $(CXXFLAGS) -c Huffman.cpp -o Huffman.o
@@ -21,6 +21,12 @@ ReduceNode.o: bitsCompare.cpp bitsCompare.hpp
 
 ReduceNode.o: ReduceNode.cpp ReduceNode.hpp
 	$(CXX) $(CXXFLAGS) -c ReduceNode.cpp -o ReduceNode.o
+
+NonOptimal.o: NonOptimal.cpp NonOptimal.hpp
+	$(CXX) $(CXXFLAGS) -c NonOptimal.cpp -o NonOptimal.o
+
+Optimal.o: Optimal.cpp Optimal.hpp
+	$(CXX) $(CXXFLAGS) -c Optimal.cpp -o Optimal.o
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
